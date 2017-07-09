@@ -1,0 +1,139 @@
+/**index.wxss**/
+.city {
+  background: #42c642;
+  padding: 0 30rpx;
+}
+
+.city .name{
+  color: #faf9fa;
+  font-size: 26rpx;
+  margin: 0;
+}
+
+.today {
+  padding: 50rpx 0 60rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #42c642;
+}
+.today .weather {
+  display: flex;  
+  flex-direction:row;
+}
+.today .weather .pic {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 40rpx;
+  /*margin: 20rpx;*/
+  /*border: 1px solid #eee;*/
+}
+.today .weather .desc{
+  display: flex;
+  flex-direction: column;
+  /*margin-top: 10rpx;*/
+  margin-right: 20rpx;
+  /*border: 1px solid #eee;*/
+}
+.today .weather .desc text {
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+}
+.today .temperature {
+  color: #faf9fa;
+  font-size: 50rpx;
+  margin: 30rpx 0;
+}
+.today .more {
+  color: #faf9fa;
+  font-size: 25rpx;
+  margin-bottom: 20rpx;
+}
+.today .more text {
+  padding: 0 10rpx;
+}
+.today-bottom {
+  background: #faf9fa;
+  /*border: 1px solid #ccc;*/
+  width: 150%;
+  height: 300rpx;
+  border-radius: 150%;
+  margin: -50rpx 0 0 0;
+  margin-left:-25%;
+}
+
+.feature {
+  margin-top: -250rpx;
+}
+.feature .day {
+  /*border: 1px solid #f0f0f0;*/
+  margin: 20rpx;
+  padding: 20rpx 30rpx;
+  border-radius: 20rpx;
+  background: #fff;
+
+  display: flex;  
+  flex-direction:row;
+}
+.feature .day .date{
+   width: 80rpx;
+   font-size: 28rpx;
+   line-height: 60rpx;
+   margin-right: 20rpx;
+   /*border: 1px solid #f0f0f0;*/
+   padding-top: 5rpx;
+}
+.feature .day .pic{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+}
+.feature .day .desc{
+  display: flex;
+  flex-direction: column;
+  /*margin-top: 10rpx;*/
+  margin-right: 20rpx;
+  width: 100px;
+  /*border: 1px solid #eee;*/
+}
+.feature .day .desc text {
+  font-size: 20rpx;
+  line-height: 25rpx;
+  margin-left: 20rpx;
+  margin-top:5rpx;
+  color:#404040;
+}
+.feature .day .temperature{
+   font-size: 28rpx;
+   line-height: 60rpx;
+   margin-left: 80rpx;
+   /*margin-right: 30rpx;*/
+   /*border: 1px solid #f0f0f0;*/
+   padding-top: 5rpx;
+}
+
+
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
