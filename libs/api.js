@@ -36,8 +36,15 @@ function weatherPic(no) {
 }
 
 function shortDate(str) {
+  console.log(str)
   var date = new Date(Date.parse(str));
-  return date.getMonth() + "/" + date.getDate()
+  var now = new Date();
+  var result = (date.getMonth() + 1) + "/" + date.getDate();
+  if (now.getDate() == date.getDate()) {
+    result = "今天";
+  }
+
+  return result;
 }
 
 module.exports = {
