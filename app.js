@@ -1,26 +1,43 @@
 //app.js
+var api = require('./libs/api')
 App({
   onLaunch: function() {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    //加载天气数据
+    this.loadWeatherData();
+    
+    // 获取用户信息
+    this.getUserInfo();
+    //...
   },
 
-  getUserInfo: function(cb) {
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.getUserInfo({
-        withCredentials: false,
-        success: function(res) {
-          that.globalData.userInfo = res.userInfo
-          typeof cb == "function" && cb(that.globalData.userInfo)
-        }
-      })
+  loadWeatherData: function() {
+    var cityList = wx.getStorageSync('cityList') || [];
+    if (cityList.length == 0) {
+      cityList.unshift("__location__");
+      wx.setStorageSync('cityList', cityList);
     }
+    console.log(cityList)
+    console.log(wx.getStorageSync('weatherData'))
+
+    var that = this
+    for (var idx in cityList) {
+      var cityCode = cityList[idx];
+      api.loadWeatherData(cityCode, function (cityCode, data) {
+        var weatherData = wx.getStorageSync('weatherData') || {};
+        weatherData[cityCode] = data;
+        wx.setStorageSync('weatherData', weatherData);
+      });
+    }
+  },
+
+  getUserInfo: function() {
+    var that = this
+    wx.getUserInfo({
+      withCredentials: false,
+      success: function (res) {
+        that.globalData.userInfo = res.userInfo
+      }
+    })
   },
 
   globalData: {

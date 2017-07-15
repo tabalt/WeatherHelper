@@ -1,47 +1,57 @@
 <!--index.wxml-->
-<scroll-view class="container" scroll-y="true" scroll-with-animation="true">
-  <view class="city">
-    <text class="name">+ {{weatherData.realtime.city_name}}</text>
-  </view>
-  <view class="today">
-    <view class="weather">
-      <image class="pic" src="{{ pic }}"></image>
-      <view class="desc">
-        <text>{{weatherData.realtime.weather.info}}</text>
-        <text>{{weatherData.realtime.wind.direct}} {{weatherData.realtime.wind.power}}</text>
+<view> 
+  <view class="top_city">
+    <view class="city_list">
+      <view class="city_item" >
+        {{topCity.left}}
       </view>
-    </view>
-    <view class="temperature">
-      <text>{{weatherData.realtime.weather.temperature}}°</text>
-    </view>
-    <view class="more">
-      <text>湿度 : {{weatherData.realtime.weather.humidity}}</text>
-      <text>PM2.5 : {{weatherData.pm25.pm25.curPm}}</text>
-      <text>{{weatherData.pm25.pm25.quality}}</text>
-    </view>
-  </view>
-  <view class="today-bottom"></view>
-  <view class="feature">
-    <view class="day" wx:for="{{weatherData.weather}}">
-      <view class="date">{{item.day}}</view>
-      <view class="date">周{{item.week}}</view>
-      <image class="pic" src="{{item.pic}}"></image>
-      <view class="desc">
-        <text>{{item.info.day[1]}}</text>
-        <text>{{item.info.day[3]}} {{item.info.day[4]}}</text>
+      <view class="city_item city_item_center" >
+        {{topCity.center}}
       </view>
-      <view class="temperature">
-        <text>{{item.info.night[2]}}~{{item.info.day[2]}}°</text>
+      <view class="city_item" >
+        {{topCity.right}}
       </view>
     </view>
   </view>
-  <!--
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  -->
-</scroll-view>
+  
+  <swiper class="container" bindchange="updateTopCity" style="background:#42c642;">
+    <block wx:for="{{cityList}}" wx:for-item="cityCode">
+      <swiper-item>
+        <scroll-view class="container" scroll-y="true" scroll-with-animation="true">
+          <view class="today" bindtap="showDetailPage">
+            <view class="weather">
+              <image class="pic" src="{{ weatherData[cityCode].realtime.weather.pic }}"></image>
+              <view class="desc">
+                <text>{{weatherData[cityCode].realtime.weather.info}}</text>
+                <text>{{weatherData[cityCode].realtime.wind.direct}} {{weatherData[cityCode].realtime.wind.power}}</text>
+              </view>
+            </view>
+            <view class="temperature">
+                <text>{{weatherData[cityCode].realtime.weather.temperature}}°</text>
+              </view>
+            <view class="more">
+              <text>湿度 : {{weatherData[cityCode].realtime.weather.humidity}}</text>
+              <text>PM2.5 : {{weatherData[cityCode].pm25.pm25.curPm}}</text>
+              <text>{{weatherData[cityCode].pm25.pm25.quality}}</text>
+            </view>
+          </view>
+          <view class="today-bottom"></view>
+          <view class="feature">
+            <view class="day" wx:for="{{weatherData[cityCode].weather}}" bindtap="showDetailPage">
+              <view class="date">{{item.shortDate}}</view>
+              <view class="date">周{{item.week}}</view>
+              <image class="pic" src="{{item.pic}}"></image>
+              <view class="desc">
+                <text>{{item.info.day[1]}}</text>
+                <text>{{item.info.day[3]}} {{item.info.day[4]}}</text>
+              </view>
+              <view class="temperature">
+                <text>{{item.info.night[2]}}~{{item.info.day[2]}}°</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/setting/setting"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#42c642",
     "navigationBarBackgroundColor": "#42c642",
     "navigationBarTitleText": "天气帮手",
     "navigationBarTextStyle": "#ffffff"

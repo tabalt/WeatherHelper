@@ -1,14 +1,39 @@
 /**index.wxss**/
-.city {
+
+/* ------- top city --------- */
+
+.top_city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #42c642;
+}
+
+.city_list {
+  display: flex; 
+  flex-direction: row; 
+  align-content: center; 
+  width: 250rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
   padding: 0 30rpx;
 }
 
-.city .name{
-  color: #faf9fa;
-  font-size: 26rpx;
-  margin: 0;
+.city_item{
+  color: #fff;
+  width: 80px;
+  font-size: 25rpx;
+  padding-top: 5rpx;
 }
+
+.city_item_center {
+  font-size: 30rpx;
+  font-style: bold;
+  padding-top: 0;
+}
+
+/* ---------------- */
 
 .today {
   padding: 50rpx 0 60rpx 0;
@@ -20,20 +45,21 @@
 .today .weather {
   display: flex;  
   flex-direction:row;
+  padding-left: 30rpx;
+  /* border: 1px solid #eee; */
 }
 .today .weather .pic {
   width: 100rpx;
   height: 100rpx;
   margin-right: 40rpx;
   /*margin: 20rpx;*/
-  /*border: 1px solid #eee;*/
+  /* border: 1px solid #eee; */
 }
 .today .weather .desc{
-  display: flex;
-  flex-direction: column;
-  /*margin-top: 10rpx;*/
+  display: flex; 
+  flex-direction: column; 
   margin-right: 20rpx;
-  /*border: 1px solid #eee;*/
+  /* border: 1px solid #eee; */
 }
 .today .weather .desc text {
   color: #fff;
@@ -43,8 +69,10 @@
 }
 .today .temperature {
   color: #faf9fa;
-  font-size: 50rpx;
+  font-size: 70rpx;
   margin: 30rpx 0;
+  padding-left:40rpx;
+  /* border: 1px solid #eee;   */
 }
 .today .more {
   color: #faf9fa;

@@ -1,11 +1,6 @@
 /**app.wxss**/
 .container {
   height: 1205rpx;
-  /*display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;*/
   background: #faf9fa;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 } 
