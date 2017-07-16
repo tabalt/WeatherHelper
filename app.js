@@ -16,8 +16,6 @@ App({
       cityList.unshift("__location__");
       wx.setStorageSync('cityList', cityList);
     }
-    console.log(cityList)
-    console.log(wx.getStorageSync('weatherData'))
 
     var that = this
     for (var idx in cityList) {

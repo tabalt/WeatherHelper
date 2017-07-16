@@ -1,4 +1,5 @@
 //index.js
+var api = require('../../libs/api')
 
 //获取应用实例
 var app = getApp()
@@ -44,19 +45,30 @@ Page({
   },
 
   onLoad: function () {
-    //临时跳转
-    // this.showDetailPage({ currentTarget: { dataset: { city_code:"101030100"}}}); return;
-
+    var defaultCityCode = "__location__";
     var cityList = wx.getStorageSync('cityList');
     var weatherData = wx.getStorageSync('weatherData');
+    if (cityList.length == 0 || weatherData.length == 0) {
+      var that = this
+      api.loadWeatherData(defaultCityCode, function (cityCode, data) {
+        var weatherData = {}
+        weatherData[cityCode] = data;
+        that.setDetailData([cityCode], weatherData);
+      });
+    } else {
+      this.setDetailData(cityList, weatherData);
+    }
+  },
+
+  setDetailData: function (cityList, weatherData) {
     var topCity = {
       left: "",
       center: "",
       right: "",
     }
-    try{ topCity.center = weatherData[cityList[0]].realtime.city_name; } catch(e){ }
-    try{ topCity.right = weatherData[cityList[1]].realtime.city_name; } catch (e) { }
-    
+    try { topCity.center = weatherData[cityList[0]].realtime.city_name; } catch (e) { }
+    try { topCity.right = weatherData[cityList[1]].realtime.city_name; } catch (e) { }
+
     this.setData({
       userInfo: app.globalData.userInfo,
       weatherData: weatherData,
@@ -64,6 +76,7 @@ Page({
       cityList: cityList,
     })
   },
+
   /**
    * 用户点击右上角分享
    */

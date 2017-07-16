@@ -19,10 +19,6 @@ Page({
   onLoad: function (options) {
     //加载天气数据
     this.loadWeatherData(options)
-
-    // var categories = ["1", "2" ,"3"]
-    // var data = [2, 3, 4]
-    // this.showLine("200", categories, data)
   },
 
   loadWeatherData: function (options) {
@@ -48,41 +44,6 @@ Page({
       weatherInfo: weatherInfo,
       topCity: topCity,
     })
-  },
-
-  showLine: function (height, categories, data) {
-    var windowWidth = 350;
-    try {
-      var res = wx.getSystemInfoSync();
-      windowWidth = res.windowWidth;
-    } catch (e) {
-      console.error('getSystemInfoSync failed!');
-    }
-
-    lineChart = new wxCharts({
-      canvasId: 'lineTemperature',
-      type: 'line',
-      categories: categories,
-      // animation: true,
-      background: '#f5f5f5',
-      series: [{
-        data: data,
-        format: function (val, name) {
-          return val.toFixed(0) + '°C';
-        }
-      }],
-      xAxis: {
-        disableGrid: true
-      },
-      yAxis: {
-        format: function (val) {
-          return val.toFixed(0);
-        },
-        // min: 0
-      },
-      width: windowWidth,
-      height: height,
-    });
   },
 
   /**
