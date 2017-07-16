@@ -1,1 +1,114 @@
 /* detail.wxss */
+
+@import "../index/index.wxss";
+
+.date {
+  padding-top:0rpx;
+  margin-top: 0rpx;
+}
+
+.day-desc {
+  font-size: 25rpx;
+  color:#fff;
+  margin-top: -20rpx;
+}
+
+.day-night {
+  margin: 30rpx 0 50rpx 0; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.day-night .split{
+  border: none;
+  border-left:1rpx dashed #eee;  
+  height:80rpx;
+  width: 0rpx;
+  padding: 0;
+  margin: 15rpx 15rpx 0 15rpx;
+}
+
+.today {
+  padding-top:20rpx;
+}
+.today .weather {
+  /* border:1rpx solid #eee; */
+  padding-top:20rpx;
+  padding-left: 0rpx;
+}
+.today .weather .pic {
+  margin: 0 10rpx;
+}
+.today .weather .desc {
+  margin: 0 10rpx;
+  float: right;
+   /* border:1rpx solid #eee;  */
+  width:140rpx;
+}
+
+/* life */
+
+.card-list {
+  margin-top: -280rpx;
+}
+.card {
+  margin-top: 20rpx;
+  margin-left:20rpx;
+  margin-right:20rpx;
+  /* border:1rpx solid #eee; 
+  border-radius: 20rpx; */
+  color:#404040;
+}
+.card .title {
+  display: block;
+  text-align:center;
+  padding-bottom:5px;
+  margin:0 100rpx;
+  margin-bottom:5px;
+  font-size:30rpx;
+  border-bottom: 1rpx dashed #eee;
+}
+.life .item {
+  display: inline-block;
+}
+.life .item .line {
+  /*border: 1px solid #f0f0f0;*/
+  margin: 10rpx;
+  padding: 10rpx;
+  border-radius: 20rpx;
+  background: #49c44a;
+  display: flex;  
+  flex-direction:row;
+  width: 310rpx;
+}
+.life .item .pic{
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 20rpx;
+}
+
+.life .item .name, .life .item .desc{
+   /* width: 100rpx; */
+   font-size: 25rpx;
+   line-height: 48rpx;
+   margin-right: 10rpx;
+   padding-top: 5rpx;
+   color: #fff;
+}
+.life .item .desc text {
+  font-size: 20rpx;
+  line-height: 25rpx;
+  margin-left: 20rpx;
+  margin-top:5rpx;
+  color:#404040;
+}
+.life .item .temperature{
+  font-size: 28rpx;
+  line-height: 60rpx;
+  margin-left: 80rpx;
+  /*margin-right: 30rpx;*/
+  /*border: 1px solid #f0f0f0;*/
+  padding-top: 5rpx;
+  height: 500rpx;
+}

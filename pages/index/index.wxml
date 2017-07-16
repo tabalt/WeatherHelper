@@ -15,10 +15,10 @@
   </view>
   
   <swiper class="container" bindchange="updateTopCity" style="background:#42c642;">
-    <block wx:for="{{cityList}}" wx:for-item="cityCode">
+    <block wx:for="{{cityList}}" wx:key="cityIdx" wx:for-item="cityCode">
       <swiper-item>
         <scroll-view class="container" scroll-y="true" scroll-with-animation="true">
-          <view class="today" bindtap="showDetailPage">
+          <view class="today" bindtap="showDetailPage" data-city_code="{{ cityCode }}">
             <view class="weather">
               <image class="pic" src="{{ weatherData[cityCode].realtime.weather.pic }}"></image>
               <view class="desc">
@@ -37,10 +37,10 @@
           </view>
           <view class="today-bottom"></view>
           <view class="feature">
-            <view class="day" wx:for="{{weatherData[cityCode].weather}}" bindtap="showDetailPage">
+            <view class="day" wx:for="{{weatherData[cityCode].weather}}" wx:key="dayIdx">
               <view class="date">{{item.shortDate}}</view>
               <view class="date">周{{item.week}}</view>
-              <image class="pic" src="{{item.pic}}"></image>
+              <image class="pic" src="{{item.day_pic}}"></image>
               <view class="desc">
                 <text>{{item.info.day[1]}}</text>
                 <text>{{item.info.day[3]}} {{item.info.day[4]}}</text>

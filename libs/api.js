@@ -26,8 +26,18 @@ function parseWeatherData(data) {
   data.realtime.weather.pic = weatherPic(data.realtime.weather.img);
   for (var i = 0; i < data.weather.length; i++) {
     data.weather[i].shortDate = shortDate(data.weather[i].date);
-    data.weather[i].pic = weatherPic(data.weather[i].info.day[0]);
+    data.weather[i].day_pic = weatherPic(data.weather[i].info.day[0]);
+    data.weather[i].night_pic = weatherPic(data.weather[i].info.night[0]);
   }
+  var lifeConf = []
+  for (var key in data.life.info) {
+    lifeConf.push({
+      key: key,
+      name: lifeName(key),
+      pic: lifePic(key)
+    });
+  }
+  data.life['conf'] = lifeConf;
   return data;
 }
 
@@ -35,15 +45,30 @@ function weatherPic(no) {
   return 'https://p.ssl.qhimg.com/dm/60_60_/d/inn/3716a4d4/1-' + no + '.png'
 }
 
+function lifePic(key) {
+  return 'https://p.ssl.qhimg.com/d/inn/d90820b1/bg-d/' + key + '.png'
+}
+
+var lifeNameConf = {
+  chuanyi: "穿衣",
+  ganmao: "感冒",
+  kongtiao: "空调",
+  xiche: "行车",
+  yundong: "运动",
+  ziwaixian: "紫外线"
+}
+function lifeName(key) {
+  return lifeNameConf[key];
+}
+
 function shortDate(str) {
-  console.log(str)
   var date = new Date(Date.parse(str));
   var now = new Date();
+
   var result = (date.getMonth() + 1) + "/" + date.getDate();
   if (now.getDate() == date.getDate()) {
     result = "今天";
   }
-
   return result;
 }
 

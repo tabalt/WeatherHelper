@@ -10,9 +10,13 @@ Page({
   },
 
   //事件处理函数
-  showDetailPage: function() {
+  showDetailPage: function(e) {
+    try{
+      var cityCode = e.currentTarget.dataset.city_code || '';
+    } catch(e){}
+  
     wx.navigateTo({
-      url: '../detail/detail'
+      url: '../detail/detail?city_code=' + cityCode
     })
   },
   showSettingPage: function () {
@@ -40,6 +44,9 @@ Page({
   },
 
   onLoad: function () {
+    //临时跳转
+    // this.showDetailPage({ currentTarget: { dataset: { city_code:"101030100"}}}); return;
+
     var cityList = wx.getStorageSync('cityList');
     var weatherData = wx.getStorageSync('weatherData');
     var topCity = {

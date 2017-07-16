@@ -33,7 +33,7 @@
   padding-top: 0;
 }
 
-/* ---------------- */
+/* ------- today --------- */
 
 .today {
   padding: 50rpx 0 60rpx 0;
@@ -91,6 +91,8 @@
   margin: -50rpx 0 0 0;
   margin-left:-25%;
 }
+
+/* ------- feature --------- */
 
 .feature {
   margin-top: -250rpx;
