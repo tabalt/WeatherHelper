@@ -1,2 +1,24 @@
-<!--setting.wxml-->
-<text>setting.wxml</text>
+<!--detail.wxml-->
+<!--index.wxml-->
+<view> 
+  <scroll-view class="container" scroll-y="true" scroll-with-animation="true">
+    <view class="city">
+      <view class="search">
+        <view class="input-box">
+          <icon type="search" size="15"/>
+          <input class="input-text" name="city_name" placeholder="输入城市名" bindconfirm="searchCity" />
+        </view>
+      </view>
+
+      <view class="hot">
+        <view class="title">热门城市</view>
+        <view class="list">
+          <view class="item" wx:for="{{hotCityConf}}" wx:key="cityIdx" wx:for-item="item">
+            <text class="name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

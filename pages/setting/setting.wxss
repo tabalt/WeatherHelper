@@ -1,1 +1,67 @@
 /* setting.wxss */
+
+.city {
+  /* background: #42c642;  */
+}
+
+.search {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center 
+}
+
+.search .input-box {
+  display: flex;
+  flex-direction: row;
+  margin: 10rpx 20rpx;
+  padding: 10rpx;
+  border: 1rpx solid #eee;
+  width: 100%; 
+  border-radius: 10rpx;
+}
+.search .input-box icon {
+  margin-top: 15rpx;
+  margin-left: 10rpx;
+}
+.search .input-box .input-text {
+  font-size: 25rpx;
+  line-height: 30rpx;
+  margin-left: 20rpx;
+}
+
+.hot {
+  margin-top: 20rpx;
+  margin-left:20rpx;
+  margin-right:20rpx;
+  color:#404040;
+}
+.hot .title {
+  display: block;
+  text-align:center;
+  padding:10px 0;
+  margin:0 100rpx;
+  margin-bottom:5px;
+  font-size:35rpx;
+  border-bottom: 1rpx dashed #eee;
+}
+
+.hot .list {
+  margin: 10rpx;
+  padding: 10rpx;
+  border-radius: 20rpx;
+  /* display: flex;  
+  flex-direction:row; */
+}
+.hot .list .item {
+  display: inline-block;
+  margin: 10rpx;
+  padding: 10rpx;
+  border: 1px solid #49c44a;
+}
+.hot .list .item .name{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  /* color: #fff; */
+}

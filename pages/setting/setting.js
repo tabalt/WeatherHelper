@@ -5,7 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    hotCityConf: [
+      {
+        code: "",
+        name: "北京"
+      },{
+        code: "",
+        name: "上海"
+      }, {
+        code: "",
+        name: "广州"
+      }, {
+        code: "",
+        name: "深圳"
+      }, {
+        code: "",
+        name: "成都"
+      }, {
+        code: "",
+        name: "杭州"
+      }, {
+        code: "",
+        name: "南京"
+      }, {
+        code: "",
+        name: "天津"
+      }, {
+        code: "",
+        name: "武汉"
+      }, {
+        code: "",
+        name: "重庆"
+      }
+    ]
   },
 
   /**
@@ -15,46 +47,8 @@ Page({
     wx.setStorageSync('cityList', ["__location__","101010200", "101030100"]);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+  searchCity: function(value) {
+    console.log(value)
   },
 
   /**

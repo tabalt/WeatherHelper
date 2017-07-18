@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view> 
-  <view class="top_city">
+  <view class="top_city" bindtap="showSettingPage">
     <view class="city_list">
       <view class="city_item" >
         {{topCity.left}}
