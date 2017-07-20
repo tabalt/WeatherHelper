@@ -1,5 +1,4 @@
 <!--detail.wxml-->
-<!--index.wxml-->
 <view> 
   <view class="top_city">
     <view class="city_list">

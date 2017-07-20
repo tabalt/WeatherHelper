@@ -15,7 +15,7 @@
   </view>
   
   <swiper class="container" bindchange="updateTopCity" style="background:#42c642;">
-    <block wx:for="{{cityList}}" wx:key="cityIdx" wx:for-item="cityCode">
+    <block wx:for="{{citySelected}}" wx:key="cityIdx" wx:for-item="cityCode">
       <swiper-item>
         <scroll-view class="container" scroll-y="true" scroll-with-animation="true">
           <view class="today" bindtap="showDetailPage" data-city_code="{{ cityCode }}">

@@ -11,15 +11,15 @@ App({
   },
 
   loadWeatherData: function() {
-    var cityList = wx.getStorageSync('cityList') || [];
-    if (cityList.length == 0) {
-      cityList.unshift("__location__");
-      wx.setStorageSync('cityList', cityList);
+    var citySelected = wx.getStorageSync('citySelected') || [];
+    if (citySelected.length == 0) {
+      citySelected.unshift("__location__");
+      wx.setStorageSync('citySelected', citySelected);
     }
 
     var that = this
-    for (var idx in cityList) {
-      var cityCode = cityList[idx];
+    for (var idx in citySelected) {
+      var cityCode = citySelected[idx];
       api.loadWeatherData(cityCode, function (cityCode, data) {
         var weatherData = wx.getStorageSync('weatherData') || {};
         weatherData[cityCode] = data;

@@ -1,8 +1,6 @@
 // detail.js
 //获取应用实例
 var app = getApp()
-var wxCharts = require('../../libs/wxcharts-min.js');
-var lineChart = null;
 Page({
 
   /**
