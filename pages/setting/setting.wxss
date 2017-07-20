@@ -4,64 +4,64 @@
   /* background: #42c642;  */
 }
 
-.search {
-  background: #fff;
-  padding: 20rpx 30rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center 
-}
 
-.search .input-box {
-  display: flex;
-  flex-direction: row;
-  margin: 10rpx 20rpx;
-  padding: 10rpx;
-  border: 1rpx solid #eee;
-  width: 100%; 
-  border-radius: 10rpx;
+
+
+
+/* ------- feature --------- */
+
+.city-selected {
+  
 }
-.search .input-box icon {
-  margin-top: 15rpx;
-  margin-left: 10rpx;
+.city-selected .item {
+  margin: 20rpx;
+  padding: 20rpx 30rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  display: flex;  
+  flex-direction:row;
 }
-.search .input-box .input-text {
-  font-size: 25rpx;
-  line-height: 30rpx;
+.city-selected .item .name{
+   width: 80rpx;
+   font-size: 28rpx;
+   line-height: 60rpx;
+   margin-right: 20rpx;
+   padding-top: 5rpx;
+}
+.city-selected .item .pic{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
   margin-left: 20rpx;
 }
-
-.hot {
-  margin-top: 20rpx;
-  margin-left:20rpx;
-  margin-right:20rpx;
+.city-selected .item .desc{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+  width: 120px;
+}
+.city-selected .item .desc text {
+  font-size: 20rpx;
+  line-height: 25rpx;
+  margin-left: 20rpx;
+  margin-top:5rpx;
   color:#404040;
 }
-.hot .title {
-  display: block;
-  text-align:center;
-  padding:10px 0;
-  margin:0 100rpx;
-  margin-bottom:5px;
-  font-size:35rpx;
-  border-bottom: 1rpx dashed #eee;
+.city-selected .item .temperature{
+   font-size: 28rpx;
+   line-height: 60rpx;
+   margin-left: 50rpx;
+   padding-top: 5rpx;
+}
+.city-selected .item .remove{
+   margin-left: 30rpx;
+   padding-top: 15rpx;
 }
 
-.hot .list {
-  margin: 10rpx;
-  padding: 10rpx;
-  border-radius: 20rpx;
-  /* display: flex;  
-  flex-direction:row; */
-}
-.hot .list .item {
-  display: inline-block;
-  margin: 10rpx;
-  padding: 10rpx;
-  border: 1px solid #49c44a;
-}
-.hot .list .item .name{
-  font-size: 30rpx;
-  line-height: 30rpx;
-  /* color: #fff; */
+.city-selected .add {
+  font-size: 25rpx;
+  text-align: center;
+  display: flex;  
+  flex-direction:column;
+  align-items: center;
 }

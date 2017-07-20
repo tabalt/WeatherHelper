@@ -1,23 +1,33 @@
-<!--detail.wxml-->
-<!--index.wxml-->
+<!--setting.wxml-->
 <view> 
   <scroll-view class="container" scroll-y="true" scroll-with-animation="true">
-    <view class="city">
-      <view class="search">
-        <view class="input-box">
-          <icon type="search" size="15"/>
-          <input class="input-text" name="city_name" placeholder="输入城市名" bindconfirm="searchCity" />
+    <view class="city-selected">
+      <view class="item" wx:for="{{citySelected}}" wx:key="dayIdx" wx:for-item="cityCode">
+        <view class="name">{{weatherData[cityCode].realtime.city_name}}</view>
+        <image class="pic" src="{{ weatherData[cityCode].realtime.weather.pic }}"></image>
+        <view class="desc" >
+          <text>{{weatherData[cityCode].realtime.weather.info}}</text>
+          <text>{{weatherData[cityCode].realtime.wind.direct}} {{weatherData[cityCode].realtime.wind.power}}</text>
         </view>
+        <view class="temperature">
+          <text>{{weatherData[cityCode].realtime.weather.temperature}}°</text>
+        </view>
+        <view class="remove"><icon type="cancel" size="15"  bindtap="removeCity"  data-city_code="{{ cityCode }}" /></view>
+      </view>
+      <view class="item add">
+        <text>+ 添加城市</text>
       </view>
 
-      <view class="hot">
-        <view class="title">热门城市</view>
-        <view class="list">
-          <view class="item" wx:for="{{hotCityConf}}" wx:key="cityIdx" wx:for-item="item">
-            <text class="name">{{item.name}}</text>
-          </view>
+      <view class="section">
+      <picker mode="multiSelector" 
+      bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" 
+      value="{{chinaCitySelected}}" range="{{chinaCityConf}}" range-key="0">
+        <view class="picker">
+          当前选择：{{chinaCityConf[0][chinaCitySelected[0]]}}，{{chinaCityConf[1][chinaCitySelected[1]]}}，{{chinaCityConf[2][chinaCitySelected[2]]}}
         </view>
-      </view>
+      </picker>
+    </view>
+
     </view>
   </scroll-view>
 </view>

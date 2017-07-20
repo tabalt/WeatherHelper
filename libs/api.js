@@ -21,7 +21,6 @@ function loadWeatherData(cityCode, cb) {
     }
   })
 }
-
 function parseWeatherData(data) {
   data.realtime.weather.pic = weatherPic(data.realtime.weather.img);
   for (var i = 0; i < data.weather.length; i++) {
@@ -40,11 +39,9 @@ function parseWeatherData(data) {
   data.life['conf'] = lifeConf;
   return data;
 }
-
 function weatherPic(no) {
   return 'https://p.ssl.qhimg.com/dm/60_60_/d/inn/3716a4d4/1-' + no + '.png'
 }
-
 function lifePic(key) {
   return 'https://p.ssl.qhimg.com/d/inn/d90820b1/bg-d/' + key + '.png'
 }
@@ -60,7 +57,6 @@ var lifeNameConf = {
 function lifeName(key) {
   return lifeNameConf[key];
 }
-
 function shortDate(str) {
   var date = new Date(Date.parse(str));
   var now = new Date();
@@ -72,6 +68,43 @@ function shortDate(str) {
   return result;
 }
 
+var oneboxProxyUrl = 'https://open.onebox.so.com/api/proxy?__url__=';
+var cdnWeatherHaoUrl = 'http://cdn.weather.hao.360.cn/sed_api_area_query.php?app=guideEngine&fmt=json&grade=';
+var cityConfCache = {}
+
+function loadCityConf(level, code, cb) {
+  console.log(level, code);
+  var cacheKey = level + ":" + code
+  if (cityConfCache[cacheKey] != undefined && cityConfCache[cacheKey].length > 0) {
+    typeof cb == "function" && cb(level, code, cityConfCache[cacheKey])
+    console.log("load from cache")
+    return
+  }
+  
+  wx.request({
+    url: apiCityConfUrl(level, code),
+    data: {},
+    success: function (res) {
+      console.log(res)
+      if (res.statusCode != 200 || res.data.length == 0) {
+        return;
+      }
+      cityConfCache[cacheKey] = res.data;
+      typeof cb == "function" && cb(level, code, res.data)
+      console.log("load from api")
+    }
+  })
+}
+function apiCityConfUrl(level, code) {
+  var url = cdnWeatherHaoUrl + level
+  if (code != "") {
+    url += '&code=' + code
+  }
+  url = oneboxProxyUrl + encodeURIComponent(url)
+  return url
+}
+
 module.exports = {
-  loadWeatherData: loadWeatherData
+  loadWeatherData: loadWeatherData,
+  loadCityConf: loadCityConf
 }
