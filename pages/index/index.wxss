@@ -13,7 +13,7 @@
   display: flex; 
   flex-direction: row; 
   align-content: center; 
-  width: 250rpx;
+  width: 330rpx;
   height: 50rpx;
   line-height: 50rpx;
   text-align: center;
@@ -22,12 +22,13 @@
 
 .city_item{
   color: #fff;
-  width: 80px;
+  width: 120px;
   font-size: 25rpx;
   padding-top: 5rpx;
 }
 
 .city_item_center {
+  width: 140px;
   font-size: 30rpx;
   font-style: bold;
   padding-top: 0;

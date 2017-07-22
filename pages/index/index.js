@@ -61,6 +61,13 @@ Page({
     }
   },
 
+  onShow:function() {
+    var citySelected = wx.getStorageSync('citySelected');
+    this.setData({
+      citySelected: citySelected,
+    })
+  },
+
   setHomeData: function (citySelected, weatherData) {
     var topCity = {
       left: "",

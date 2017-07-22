@@ -73,11 +73,9 @@ var cdnWeatherHaoUrl = 'http://cdn.weather.hao.360.cn/sed_api_area_query.php?app
 var cityConfCache = {}
 
 function loadCityConf(level, code, cb) {
-  console.log(level, code);
   var cacheKey = level + ":" + code
   if (cityConfCache[cacheKey] != undefined && cityConfCache[cacheKey].length > 0) {
     typeof cb == "function" && cb(level, code, cityConfCache[cacheKey])
-    console.log("load from cache")
     return
   }
   
@@ -85,13 +83,11 @@ function loadCityConf(level, code, cb) {
     url: apiCityConfUrl(level, code),
     data: {},
     success: function (res) {
-      console.log(res)
       if (res.statusCode != 200 || res.data.length == 0) {
         return;
       }
       cityConfCache[cacheKey] = res.data;
       typeof cb == "function" && cb(level, code, res.data)
-      console.log("load from api")
     }
   })
 }

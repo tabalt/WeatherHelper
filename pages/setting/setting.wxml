@@ -14,20 +14,13 @@
         </view>
         <view class="remove"><icon type="cancel" size="15"  bindtap="removeCity"  data-city_code="{{ cityCode }}" /></view>
       </view>
-      <view class="item add">
-        <text>+ 添加城市</text>
-      </view>
-
-      <view class="section">
       <picker mode="multiSelector" 
-      bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" 
-      value="{{chinaCitySelected}}" range="{{chinaCityConf}}" range-key="0">
-        <view class="picker">
-          当前选择：{{chinaCityConf[0][chinaCitySelected[0]]}}，{{chinaCityConf[1][chinaCitySelected[1]]}}，{{chinaCityConf[2][chinaCitySelected[2]]}}
-        </view>
+            bindchange="addCity" bindcolumnchange="pickerCity" 
+            value="{{chinaCitySelected}}" range="{{chinaCityConf}}" range-key="0">
+      <view class="item add">
+          <text>+ 添加城市</text>
+      </view>
       </picker>
-    </view>
-
     </view>
   </scroll-view>
 </view>

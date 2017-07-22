@@ -2,13 +2,13 @@
 <view> 
   <view class="top_city" bindtap="showSettingPage">
     <view class="city_list">
-      <view class="city_item" >
+      <view class="city_item city_item_left" >
         {{topCity.left}}
       </view>
       <view class="city_item city_item_center" >
         {{topCity.center}}
       </view>
-      <view class="city_item" >
+      <view class="city_item city_item_right" >
         {{topCity.right}}
       </view>
     </view>
