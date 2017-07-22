@@ -33,7 +33,6 @@
   padding-top:20rpx;
 }
 .today .weather {
-  /* border:1rpx solid #eee; */
   padding-top:20rpx;
   padding-left: 0rpx;
 }
@@ -43,7 +42,6 @@
 .today .weather .desc {
   margin: 0 10rpx;
   float: right;
-   /* border:1rpx solid #eee;  */
   width:140rpx;
 }
 
@@ -56,8 +54,6 @@
   margin-top: 20rpx;
   margin-left:20rpx;
   margin-right:20rpx;
-  /* border:1rpx solid #eee; 
-  border-radius: 20rpx; */
   color:#404040;
 }
 .card .title {
@@ -73,7 +69,6 @@
   display: inline-block;
 }
 .life .item .line {
-  /*border: 1px solid #f0f0f0;*/
   margin: 10rpx;
   padding: 10rpx;
   border-radius: 20rpx;
@@ -89,10 +84,8 @@
 }
 
 .life .item .name, .life .item .desc{
-   /* width: 100rpx; */
    font-size: 25rpx;
    line-height: 48rpx;
-   /* margin-right: 10rpx; */
    padding-top: 5rpx;
    color: #fff;
 }
@@ -107,8 +100,6 @@
   font-size: 28rpx;
   line-height: 60rpx;
   margin-left: 80rpx;
-  /*margin-right: 30rpx;*/
-  /*border: 1px solid #f0f0f0;*/
   padding-top: 5rpx;
   height: 500rpx;
 }

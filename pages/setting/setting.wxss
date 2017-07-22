@@ -1,18 +1,6 @@
 /* setting.wxss */
 
-.city {
-  /* background: #42c642;  */
-}
-
-
-
-
-
-/* ------- feature --------- */
-
-.city-selected {
-  
-}
+/* ------- city selected --------- */
 .city-selected .item {
   margin: 20rpx;
   padding: 20rpx 30rpx;
