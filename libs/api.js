@@ -15,7 +15,6 @@ function loadWeatherData(cityCode, cb) {
       if (res.statusCode != 200 || res.data.length == 0) {
         return;
       }
-
       var weatherData = parseWeatherData(res.data);
       typeof cb == "function" && cb(cityCode, weatherData)
     }
@@ -30,29 +29,37 @@ function parseWeatherData(data) {
   }
   var lifeConf = []
   for (var key in data.life.info) {
-    lifeConf.push({
-      key: key,
-      name: lifeName(key),
-      pic: lifePic(key)
-    });
+    var name = lifeName(key)
+    if(name != undefined) {
+      lifeConf.push({
+        key: key,
+        name: name,
+        pic: lifePic(key)
+      });
+    }
   }
   data.life['conf'] = lifeConf;
   return data;
 }
 function weatherPic(no) {
-  return 'https://p.ssl.qhimg.com/dm/60_60_/d/inn/3716a4d4/1-' + no + '.png'
+  if (no.length == 1) {
+    no = '0' + no;
+  }
+  return 'https://p0.ssl.qhimg.com/d/f239f0e2/' + no + '.png'
 }
 function lifePic(key) {
-  return 'https://p.ssl.qhimg.com/d/inn/d90820b1/bg-d/' + key + '.png'
+  return 'https://p0.ssl.qhimg.com/d/f239f0e2/' + key + '.png';
 }
 
 var lifeNameConf = {
   chuanyi: "穿衣",
   ganmao: "感冒",
-  kongtiao: "空调",
   xiche: "行车",
   yundong: "运动",
-  ziwaixian: "紫外线"
+  ziwaixian: "紫外线",
+  diaoyu: "钓鱼",
+  daisan:"带伞",
+  guomin:"过敏",
 }
 function lifeName(key) {
   return lifeNameConf[key];
